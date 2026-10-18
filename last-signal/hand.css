@@ -1,0 +1,2 @@
+/* The physical hand and hotbar label already show the single equipped item. */
+.hand-view-active #inventory-hand{display:none}

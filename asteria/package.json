@@ -1,0 +1,70 @@
+{
+  "name": "asteria-observatory",
+  "version": "1.3.0",
+  "private": true,
+  "description": "사라진 천문학자의 관측소 — 오프라인 3D 방탈출",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "build:html": "node tools/build-standalone.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "start": "electron .",
+    "desktop": "electron .",
+    "dist:win": "electron-builder --win --x64 --publish never",
+    "dist:portable": "electron-builder --win portable --x64 --publish never",
+    "dist:installer": "electron-builder --win nsis --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "44.7.2",
+    "electron-builder": "26.0.12"
+  },
+  "build": {
+    "appId": "studio.northlight.asteria",
+    "productName": "아스테리아 관측소",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "style.css",
+      "extended.css",
+      "js/**/*",
+      "vendor/**/*",
+      "desktop/main.cjs",
+      "README.md",
+      "THIRD_PARTY_LICENSES.md",
+      "package.json",
+      "asteria.css",
+      "inventory.css",
+      "hand.css",
+      "pictorial.css"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "Asteria-${version}-${arch}-portable.${ext}"
+    },
+    "nsis": {
+      "artifactName": "Asteria-${version}-${arch}-setup.${ext}",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "아스테리아 관측소"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#122c30">
+  <meta name="description" content="1927년, 사라진 천문학자가 남긴 인공 천구의 비밀. 오프라인 3D 방탈출.">
+  <title>사라진 천문학자의 관측소 — Asteria</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extended.css">
+  <link rel="stylesheet" href="asteria.css">
+  <link rel="stylesheet" href="inventory.css">
+  <link rel="stylesheet" href="hand.css">
+  <link rel="stylesheet" href="pictorial.css">
+  <script defer src="vendor/three.min.js"></script>
+  <script defer src="js/content.js"></script>
+  <script defer src="js/item-art.js"></script>
+  <script defer src="js/state.js"></script>
+  <script defer src="js/world.js"></script>
+  <script defer src="js/inventory-layout.js"></script>
+  <script defer src="js/inventory.js"></script>
+  <script defer src="js/pictorial.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/hand.js"></script>
+  <script defer src="js/ground-items.js"></script>
+  <script defer src="js/item-placement.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body data-game-map="asteria">
+  <main id="viewport" aria-label="아스테리아 관측소 3D 게임 공간" tabindex="-1"></main>
+  <div class="vignette" aria-hidden="true"></div>
+  <div id="loading"><span class="loading-mark">✦</span><p>관측소의 불을 켜는 중</p></div>
+  <section id="title-screen" class="screen hidden" aria-label="게임 시작">
+    <div class="title-top"><span class="wordmark">NORTHLIGHT <i>STUDIO</i></span><span>AN ESCAPE ROOM EXPERIENCE</span></div>
+    <div class="title-body">
+      <p class="eyebrow"><span class="tiny-line"></span> MAP 02 · 사라진 천문학자 / 1927</p>
+      <h1>사라진 천문학자의<br>관측소<span class="title-star">✦</span></h1>
+      <p class="english-title">Asteria Observatory</p>
+      <p class="intro">별을 찾던 천문학자는 어디로 사라졌을까.<br>그가 남긴 다섯 번의 관측이 비밀의 방을 연다.</p>
+      <div class="start-actions"><button id="start" class="primary">관측소에 들어가기 <span>↗</span></button><button id="new-game" class="text-button hidden">새로 시작</button></div>
+      <p class="title-meta">1인 플레이 <b>·</b> 다섯 개의 퍼즐 <b>·</b> 시간 제한 없음</p>
+    </div>
+    <div class="title-footer"><span>ASTERIA · 1927 <i>산정의 관측소</i></span><button class="text-button" data-action="controls">플레이 방법 <span>↗</span></button><span class="offline">● OFFLINE READY</span></div>
+  </section>
+  <section id="hud" class="hidden" aria-label="게임 정보">
+    <header class="hud-top"><div class="map-label"><span class="map-number">02</span><div><span class="eyebrow">ASTERIA OBSERVATORY</span><strong>아스테리아 관측소</strong></div></div><div class="hud-tools"><button id="hud-inventory-toggle" data-action="inventory" title="인벤토리 (I)" aria-label="인벤토리 열기">▣ <span>가방</span></button><button data-action="notebook" title="수첩 (Tab)" aria-label="수첩 열기">▤ <span>수첩</span></button><button data-action="pause" title="일시정지 (Esc)" aria-label="일시정지">Ⅱ</button></div></header>
+    <div id="heading" aria-label="바라보는 방향"><span>N</span><small>북쪽</small></div>
+    <div id="crosshair" aria-hidden="true"><span></span></div>
+    <div id="interaction" class="hidden"><span class="key">E</span></div>
+    <button id="held-item" class="hidden" aria-label="소지품 열기"></button>
+    <div id="look-tip" class="hidden">화면 클릭으로 둘러보기 <span>· 마우스가 잠기지 않으면 드래그</span></div>
+    <footer class="hud-bottom"><span><kbd>W A S D</kbd> 이동 <i></i><kbd>마우스</kbd> 시선 <i></i><kbd>E</kbd> 조사 <i></i><kbd>R</kbd> 살펴보기 <i></i><kbd>I</kbd> 가방</span><span id="save-indicator">● 자동 저장</span><span id="elapsed">00:00</span></footer>
+  </section>
+  <div id="toast" role="status" aria-live="polite" class="hidden"></div>
+  <div id="dialog-layer" class="hidden"><section id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><div class="dialog-top"><p id="dialog-kicker" class="eyebrow"></p><div class="dialog-tools"><button id="dialog-notebook" class="text-button">수첩</button><button id="close-dialog" class="icon-button" aria-label="닫기">✕</button></div></div><h2 id="dialog-title"></h2><div id="dialog-content"></div></section></div>
+  <div id="touch-controls" class="hidden"><div class="touch-move"><button data-move="forward" aria-label="앞으로">▲</button><button data-move="left" aria-label="왼쪽">◀</button><button data-move="back" aria-label="뒤로">▼</button><button data-move="right" aria-label="오른쪽">▶</button></div><button id="touch-use">조사</button></div>
+  <noscript>게임을 실행하려면 브라우저에서 JavaScript를 켜 주세요.</noscript>
+</body>
+</html>
